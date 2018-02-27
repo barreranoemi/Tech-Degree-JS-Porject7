@@ -1,13 +1,13 @@
 const express = require('express');
 const Twit = require('twit');
-//const config = require('./config');
+const config = require('./config');
 
 const app = express();
 const T = new Twit({
-	'',
-	'',
-	'',
-	'',
+	consumer_key:        'config.consumer_key',
+	consumer_secret:     'config.consumer_secret',
+	access_token:        'config.access_token',
+	access_token_secret: 'config.access_token_secret'
 });
 
 app.use('/static', express.static('public'));
