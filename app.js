@@ -8,7 +8,7 @@ var T = new Twit({
   consumer_key:         config.consumer_key,
   consumer_secret:      config.consumer_secret,
   access_token:         config.access_key,
-  access_token_secret:  config.acess_token_secret
+  access_token_secret:  config.access_token_secret
 });
 
 app.use('/static', express.static('public'));
