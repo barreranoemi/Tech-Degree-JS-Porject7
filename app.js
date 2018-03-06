@@ -1,13 +1,14 @@
 const express = require('express');
 const Twit = require('twit');
-//const config = require('./config');
+const config = require('./config');
 
 const app = express();
-const T = new Twit({
-	consumer_key: '3KvgLzq1NqLjggQ7muWYPaakp',
-	consumer_secret: '5ITYhTSNkauR77JGwxUTznUUesjdW3ucmampoArLKq8D7aOCZd',
-	access_token: '965042025627176961-DZapaxDQXW52FIUIhfkCy2nudXonQaP',
-	access_token_secret: 'wjVkOI0Nb9utDA7cJinXkoFV6AXkrWTo7agRYF6KaDaiU'
+
+var T = new Twit({
+  consumer_key:         config.consumer_key,
+  consumer_secret:      config.consumer_secret,
+  access_token:         config.access_key,
+  access_token_secret:  config.acess_token_secret
 });
 
 app.use('/static', express.static('public'));
@@ -32,7 +33,7 @@ T.get('statuses/user_timeline', {count: numOfTweets}, function(err, data, respon
   } 
 // Add the amount of elapsed time since each tweet to the data object
   for ( i = 0; i < numOfTweets; i++) {
-    data[i].timeFromTweet = returnTimeFromTweet(data[i].created_at)
+    data.timeFromTweet = returnTimeFromTweet(data.created_at)
   }
 // Add the data to the myTweetArray
   myTweetArray.tweets = data;
@@ -53,7 +54,7 @@ T.get('direct_messages', { count: numOfMessages },  function (err, data, respons
   }
 // Add the amount of elapsed time since each message to the data object
   for ( i = 0; i < numOfMessages; i++) {
-    data[i].timeFromTweet = returnTimeFromTweet(data[i].created_at);
+    data.timeFromTweet = returnTimeFromTweet(data.created_at);
   }
   myTweetArray.direct_messages = data;
 });
