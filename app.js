@@ -3,7 +3,6 @@ const Twit = require('twit');
 const config = require('./config');
 
 const app = express();
-<<<<<<< HEAD
 
 var T = new Twit({
   consumer_key:         config.consumer_key,
