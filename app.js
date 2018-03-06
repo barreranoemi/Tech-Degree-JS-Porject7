@@ -3,20 +3,12 @@ const Twit = require('twit');
 const config = require('./config');
 
 const app = express();
-<<<<<<< HEAD
 
 var T = new Twit({
   consumer_key:         config.consumer_key,
   consumer_secret:      config.consumer_secret,
   access_token:         config.access_key,
   access_token_secret:  config.acess_token_secret
-=======
-const T = new Twit({
-	consumer_key:        'config.consumer_key',
-	consumer_secret:     'config.consumer_secret',
-	access_token:        'config.access_token',
-	access_token_secret: 'config.access_token_secret'
->>>>>>> 5d478f1a404a868a21ff8f8307c95055aab3071a
 });
 
 app.use('/static', express.static('public'));
